@@ -1,6 +1,6 @@
 
-import {Cue} from "./Cue"
-import {Timecode} from "./Timecode"
+import {Cue} from './Cue'
+import {Timecode} from './Timecode'
 
 export class Vtt {
   cues: Cue[] = []
@@ -8,8 +8,8 @@ export class Vtt {
   constructor() {}
 
   parse(content: string) {
-    if(content == null) {
-      console.error("no content provided")
+    if (content == null) {
+      console.error('no content provided')
       return false
     }
     var is_header = true
@@ -21,11 +21,11 @@ export class Vtt {
 
     let cue = new Cue()
 
-    for(var line of content.split("\n")) {
+    for (var line of content.split('\n')) {
       // console.log(line)
-      if(is_header){
-        if(line !== "WEBVTT"){
-          console.error("Not a WebVTT content")
+      if (is_header){
+        if (line !== 'WEBVTT'){
+          console.error('Not a WebVTT content')
           return false
         }
         next_line_is_blank = true
@@ -33,8 +33,8 @@ export class Vtt {
         continue
       }
 
-      if(next_line_is_blank) {
-        if(line !== ""){
+      if (next_line_is_blank) {
+        if (line !== ''){
           console.error("Line can't be blank here")
           return false
         }
@@ -43,10 +43,10 @@ export class Vtt {
         continue
       }
 
-      if(next_line_can_be_index && !next_line_is_blank && !next_line_is_time && !next_line_can_be_text) {
-        if(line !== ""){
+      if (next_line_can_be_index && !next_line_is_blank && !next_line_is_time && !next_line_can_be_text) {
+        if (line !== ''){
           var new_cue_number = Number(line)
-          if(new_cue_number !== cue_number + 1){
+          if (new_cue_number !== cue_number + 1){
             console.error("Cue index don't match")
             return false
           }
@@ -57,10 +57,10 @@ export class Vtt {
         continue
       }
 
-      if(next_line_is_time) {
-        var times = line.split("-->")
-        if(times.length !== 2) {
-          console.error("unable to parse times")
+      if (next_line_is_time) {
+        var times = line.split('-->')
+        if (times.length !== 2) {
+          console.error('unable to parse times')
           return false
         }
         let timecode = new Timecode()
@@ -72,8 +72,8 @@ export class Vtt {
         continue
       }
 
-      if(next_line_can_be_text) {
-        if(line === "") {
+      if (next_line_can_be_text) {
+        if (line === '') {
           this.cues.push(cue)
           cue = new Cue()
 

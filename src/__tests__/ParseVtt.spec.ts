@@ -10,7 +10,7 @@ describe(`ParseVtt`, () => {
 
   it(`empty parsing`, () => {
     const vtt = new Vtt()
-    const response = vtt.parse("")
+    const response = vtt.parse('')
     const cues = vtt.get_cues()
 
     expect(response).toBe(false)
@@ -19,7 +19,7 @@ describe(`ParseVtt`, () => {
 
   it(`parse 1 item`, () => {
     const vtt = new Vtt()
-    const response = vtt.parse("WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n")
+    const response = vtt.parse('WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n')
     const cues = vtt.get_cues()
 
     const expected = [{
@@ -54,10 +54,10 @@ describe(`ParseVtt`, () => {
   })
 
   it(`parse file`, () => {
-    const filepath = "samples/La.La.Land.2016.1080p.BluRay.x264-SPARKS.EN.vtt"
+    const filepath = 'samples/La.La.Land.2016.1080p.BluRay.x264-SPARKS.EN.vtt'
     const basename = path.basename(filepath, '.vtt')
     const content = fs.readFileSync(path.join(__dirname, filepath), 'utf8')
-    const json_content = fs.readFileSync(path.join(__dirname, "samples", basename + ".json"), 'utf8')
+    const json_content = fs.readFileSync(path.join(__dirname, 'samples', basename + '.json'), 'utf8')
     const vtt = new Vtt()
     vtt.parse(content)
     const cues = vtt.get_cues()

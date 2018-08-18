@@ -11,7 +11,7 @@ describe(`DumpVtt`, () => {
     vtt.set_cues([])
     var content = vtt.dump()
 
-    expect(content).toEqual("WEBVTT\n\n")
+    expect(content).toEqual('WEBVTT\n\n')
   })
 
   it(`dump 1 item`, () => {
@@ -22,7 +22,7 @@ describe(`DumpVtt`, () => {
       content: 'Subtitles: @marlonrock1986 (^^V^^)'
     }])
     const response = vtt.dump()
-    const expected = "WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n"
+    const expected = 'WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n'
     expect(response).toBe(expected)
   })
 
