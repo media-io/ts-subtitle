@@ -2,7 +2,7 @@
 import {Cue} from './Cue'
 import {Timecode} from './Timecode'
 
-export class Vtt {
+export class WebVtt {
   cues: Cue[] = []
 
   constructor() {}

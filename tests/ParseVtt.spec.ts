@@ -1,26 +1,26 @@
 import fs from 'fs'
 import path from 'path'
 
-import { Vtt } from '../src/Vtt'
+import { WebVtt } from '../src/WebVtt'
 import { Cue } from '../src/Cue'
 
-describe(`ParseVtt`, () => {
+describe(`Parse WebVtt`, () => {
   beforeEach(() => {
   })
 
   it(`empty parsing`, () => {
-    const vtt = new Vtt()
-    const response = vtt.parse('')
-    const cues = vtt.get_cues()
+    const webvtt = new WebVtt()
+    const response = webvtt.parse('')
+    const cues = webvtt.get_cues()
 
     expect(response).toBe(false)
     expect(cues).toEqual([])
   })
 
   it(`parse 1 item`, () => {
-    const vtt = new Vtt()
-    const response = vtt.parse('WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n')
-    const cues = vtt.get_cues()
+    const webvtt = new WebVtt()
+    const response = webvtt.parse('WEBVTT\n\n1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n')
+    const cues = webvtt.get_cues()
 
     const expected = [{
       start: 0.001,
@@ -33,11 +33,11 @@ describe(`ParseVtt`, () => {
   })
 
   it(`parse 2 item`, () => {
-    const vtt = new Vtt()
-    const response = vtt.parse(`WEBVTT\n
+    const webvtt = new WebVtt()
+    const response = webvtt.parse(`WEBVTT\n
     1\n00:00:00.001 --> 00:00:05.000\nSubtitles: @marlonrock1986 (^^V^^)\n
     2\n00:00:25.801 --> 00:00:28.700\nIt's another hot, sunny day today\nhere in Southern California.\n`)
-    const cues = vtt.get_cues()
+    const cues = webvtt.get_cues()
 
     const expected = [{
       start: 0.001,
@@ -58,9 +58,9 @@ describe(`ParseVtt`, () => {
     const basename = path.basename(filepath, '.vtt')
     const content = fs.readFileSync(path.join(__dirname, filepath), 'utf8')
     const json_content = fs.readFileSync(path.join(__dirname, 'samples', basename + '.json'), 'utf8')
-    const vtt = new Vtt()
-    vtt.parse(content)
-    const cues = vtt.get_cues()
+    const webvtt = new WebVtt()
+    webvtt.parse(content)
+    const cues = webvtt.get_cues()
     const json_cues = JSON.parse(json_content)
     expect(cues).toEqual(json_cues)
   })
