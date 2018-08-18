@@ -1,0 +1,1 @@
+{"version":3,"file":"Timecode.d.ts","sourceRoot":"","sources":["../../src/Timecode.ts"],"names":[],"mappings":"AACA,qBAAa,QAAQ;IACP,OAAO,CAAC,SAAS;gBAAT,SAAS,GAAE,MAAa;IAE5C,SAAS,CAAC,QAAQ,EAAE,MAAM,GAAI,MAAM,GAAG,GAAG;IAkC1C,WAAW,CAAC,IAAI,EAAE,MAAM,EAAE,eAAe,GAAE,OAAe,GAAI,MAAM;CAmBrE"}
