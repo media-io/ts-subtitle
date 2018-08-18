@@ -1,10 +1,9 @@
 ts-subtitle
 ===========
 
-Parse and manipulate subtitling formats
+Parse and manipulate subtitling formats.
 
-Formats
--------
+## Supported formats
 
-[x] WebVTT
-[ ] Imsc1
+- [x] WebVTT
+- [ ] Imsc1
