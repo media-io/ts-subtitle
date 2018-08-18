@@ -1,5 +1,5 @@
 
-import { Timecode } from '../Timecode'
+import { Timecode } from '../src/Timecode'
 
 describe(`Timecode`, () => {
   tc: Timecode

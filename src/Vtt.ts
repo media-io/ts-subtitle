@@ -105,7 +105,7 @@ export class Vtt {
     return this.cues
   }
 
-  set_cues(cues) {
+  set_cues(cues: Cue[]) {
     this.cues = cues
   }
 }

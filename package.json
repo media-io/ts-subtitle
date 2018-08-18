@@ -5,11 +5,7 @@
   "main": "./dist/ts-subtitle.bundle.js",
   "scripts": {
     "test": "jest -c ./config/jest.config.js",
-    "ava": "npm run build && ava test/*.test.js",
     "lint": "./node_modules/standardts/dist/cli.js **/*.ts",
-    "coverage": "nyc npm test",
-    "report": "nyc report --reporter=html",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "build": "tsc && tsc --target es2018 --outDir dist/esm2015"
   },
   "author": "Marc-Antoine Arnaud <maarnaud@media-io.com>",

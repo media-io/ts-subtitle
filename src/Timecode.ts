@@ -2,12 +2,12 @@
 export class Timecode {
   constructor(private framerate: number = 25.0) {}
 
-  to_number(timecode: string) : number {
+  to_number(timecode: string) : number | any {
     var timecode = timecode.trim()
 
     var format = timecode.split('.')
     if (format.length === 2) {
-      var time = format[0].split(':'))
+      var time = format[0].split(':')
       var milli = Number(format[1])
 
       if (time.length !== 3) {

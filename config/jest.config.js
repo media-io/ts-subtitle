@@ -18,8 +18,7 @@ const config = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testMatch: [
-    '<rootDir>/src/**/__tests__/**/*.ts?(x)',
-    '<rootDir>/src/**/?(*.)+(spec|test).ts?(x)',
+    '<rootDir>/tests/**/*.ts?(x)',
   ],
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   globals: {

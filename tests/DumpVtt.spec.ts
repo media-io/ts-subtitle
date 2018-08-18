@@ -1,6 +1,6 @@
 
-import { Vtt } from '../Vtt'
-import { Cue } from '../Cue'
+import { Vtt } from '../src/Vtt'
+import { Cue } from '../src/Cue'
 
 describe(`DumpVtt`, () => {
   beforeEach(() => {

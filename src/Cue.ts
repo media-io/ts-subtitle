@@ -1,7 +1,7 @@
 
 export class Cue {
-  start: number = null
-  end: number = null
+  start: number = 0
+  end: number = 0
   content: string = ''
 
   constructor() {}
