@@ -1,6 +1,6 @@
 {
   "name": "ts-subtitle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Parse and manipulate subtitling formats",
   "main": "./dist/esm2015/index.js",
   "types": "./dist/types/index.d.js",
